@@ -1,0 +1,13 @@
+@use "mixins" as *;
+
+.rank-math {
+   &-question {
+      @include accordionHeader();
+   }
+   &-answer {
+      @include accordionContent();
+      > p {
+         padding-bottom: var(--wp--preset--spacing--30);
+      }
+   }
+}

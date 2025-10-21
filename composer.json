@@ -1,0 +1,19 @@
+{
+    "name": "haj/rb-solutions",
+    "type": "rb-solutions-theme",
+    "authors": [
+        {
+            "name": "Kim Harrington Jansson",
+            "email": "kim@hajagency.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tiburon\\Assets\\Classes\\": "includes/assets/classes"
+        },
+        "files": [
+            "includes/hooks/actions.php",
+            "includes/hooks/filters.php"
+        ]
+    }
+}

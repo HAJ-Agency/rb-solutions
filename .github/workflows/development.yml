@@ -1,0 +1,31 @@
+name: Publish WTC Theme to dev.wtcgoteborg.se
+
+on:
+   push:
+      branches:
+         - development
+
+jobs:
+   web-deploy:
+      name: 🚀 Deploy WTC Theme to dev.wtcgoteborg.se
+      runs-on: ubuntu-latest
+      steps:
+         - name: 🚚 Get Latest Code
+           uses: actions/checkout@v5
+
+         - name: 📂 Sync Files
+           uses: SamKirkland/web-deploy@v1
+           with:
+              target-server: server17.serverdrift.com
+              remote-user: wtcgoteborg
+              private-ssh-key: ${{ secrets.SSH_KEY }}
+              destination-path: /home/wtcgoteborg/dev.wtcgoteborg.se/wp-content/themes/world-trade-center/
+              rsync-options: --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+
+         - name: ✅ Done
+           run: echo "Dseployment to dev.wtcgoteborg.se complete!"
+
+# https://github.com/SamKirkland/web-deploy
+# https://github.com/actions/checkout
+# https://stackoverflow.com/questions/58347746/automating-the-build-and-publish-process-with-github-actions-and-github-package
+# https://github.com/actions/setup-node

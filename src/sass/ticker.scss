@@ -1,0 +1,44 @@
+.ticker {
+   > .slick-list > .slick-track {
+      > div {         
+         align-items: center;
+         column-gap: 0;
+         display: flex;
+         figure {
+            margin-right: var(--wp--preset--spacing--50);
+            margin-left: var(--wp--preset--spacing--50);
+         }         
+      }
+      //  display: block;
+      // align-items: center;
+      // column-gap: 50px;
+      // display: flex;
+   }
+   // overflow: visible;
+   // width: 100%;
+   // overflow: hidden;
+   // position: relative;
+   // height: 200px;
+   // margin-bottom: 20px;
+   &-slide {
+      // left: 0;
+      // position: absolute;
+      // white-space:nowrap;
+      // top: 0;
+      // left: 0;
+      // margin: 0 auto;
+      // position: absolute;
+      // height: 200px;
+      // max-width: unset;
+   }
+   &-item {
+      // display: flex;
+      // align-items: center;
+      // position: relative;
+      // margin: 0;
+      // padding: 0;
+      // float: left;
+      // width: 446px!important;
+      // display: inline-block;;
+   }
+}

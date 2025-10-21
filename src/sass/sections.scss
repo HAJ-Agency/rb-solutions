@@ -1,0 +1,9 @@
+@use "variables" as *;
+
+.statistics {
+   @media(max-width: $tablet) {
+      .wp-block-column {
+         border-width: 0;
+      }
+   }
+}

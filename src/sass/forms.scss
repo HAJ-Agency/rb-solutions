@@ -1,0 +1,197 @@
+@use "mixins" as *;
+
+form {
+   .frm_form_fields {
+      fieldset {
+         border: none;
+         padding: 0;
+         .frm_fields_container {
+            column-gap: var(--wp--preset--spacing--24);
+            row-gap: var(--wp--preset--spacing--20);
+
+            label {
+               color: var(--wp--preset--color--primary-dark-brown);
+               display: block;
+               font-family: var(--wp--preset--font-family--news-gothic-std);
+               font-size: var(--wp--preset--font-size--paragraph-small);
+               letter-spacing: 0.84px;
+               line-height: 1.4;
+               margin-bottom: var(--wp--preset--spacing--4);
+               text-transform: uppercase;
+               .frm_required {
+                  color: var(--wp--preset--color--warning);
+               }
+            }
+            input,
+            textarea {
+               background-color: var(--wp--preset--color--neutral-transparent);
+               border: solid 1px var(--wp--preset--color--primary-dark-brown);
+               border-radius: var(--wp--preset--spacing--10);
+               font-family: var(--wp--preset--font-family--open-sans);
+               font-size: var(--wp--preset--font-size--normal);
+            }
+            input {
+               box-sizing: border-box;
+               line-height: var(--wp--preset--spacing--44);
+               padding: 0 var(--wp--preset--spacing--12);
+               width: 100%;
+               .member-login & {
+                  &[name="log"],
+                  &[name="pwd"] {
+                     border-radius: 0;
+                  }
+               }
+            }
+            textarea {
+               min-height: 7.875rem;
+               padding: var(--wp--preset--spacing--12);
+            }
+            .frm_error {
+               color: var(--wp--preset--color--error);
+               font-family: var(--wp--preset--font-family--news-gothic-std);
+               font-size: var(--wp--preset--font-size--paragraph-small);
+               font-style: italic;
+               letter-spacing: 0.84px;
+               margin-top: 0.125rem;
+            }
+            .frm_checkbox {
+               label {
+                  margin-bottom: 0;
+                  text-transform: none;
+                  input {
+                     border: solid 1px var(--wp--preset--color--primary-dark-brown);
+                     border-radius: 0;
+                     display: inline-block;
+                     width: 1rem;
+                  }
+               }
+            }
+            .frm_form_field {
+               button {
+                  @include transition;
+                  background-color: var(--wp--preset--color--neutral-transparent);
+                  border-color: var(--wp--preset--color--primary-dark-brown);
+                  border-radius: 50%;
+                  border-style: solid;
+                  border-width: 1px;
+                  color: var(--wp--preset--color--primary-dark-brown);
+                  font-family: var(--wp--preset--font-family--news-gothic-std);
+                  font-size: var(--wp--preset--font-size--paragraph-small);
+                  font-style: normal;
+                  font-weight: 400;
+                  letter-spacing: 0;
+                  line-height: 3.25rem;
+                  margin-top: 1.25rem;
+                  padding-top: 0;
+                  padding-right: 3.125rem;
+                  padding-bottom: 0;
+                  padding-left: 3.125rem;
+                  text-transform: uppercase;
+                  &:hover {
+                     @include transition;
+                     background-color: var(--wp--preset--color--neutral-one);
+                     cursor: pointer;
+                  }
+               }
+               &.button-disabled {
+                  button {
+                     opacity: 0.5;
+                     pointer-events: none;
+                  }
+               }
+            }
+         }
+      }
+   }
+   &.newsletter {
+      display: flex;
+      gap: 1rem;
+      @include newsletterCheckbox;
+      @include newsletterText;
+      @include newsletterSubmit;
+       @media(max-width: 500px) {
+         flex-direction: column;
+         gap: 0.5rem;
+      }
+   }
+   .newsletter-pattern & {      
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr auto;      
+      max-width: 500px;
+      @include newsletterCheckbox;
+      @include newsletterText(var(--wp--preset--color--primary-dark-brown), var(--wp--preset--color--neutral-white), #D7C6BD);
+      @include newsletterSubmit(var(--wp--preset--color--primary-dark-brown), var(--wp--preset--color--neutral-white));
+      @media(max-width: 500px) {
+         gap: 0.5rem;
+         grid-template-columns: 1fr;
+         grid-template-rows: auto auto;         
+      }
+   }
+}
+.frm_forms.member-login {
+   &.frm_style_formidable-style {
+      &.with_frm_style {
+         .form-field {
+            margin-bottom: 0;
+            &.login_lost_pw {
+               grid-column: span 12;
+               order: 2;
+               width: 100%;
+            }
+         }
+         .frm_checkbox {
+            label {
+               font-family: var(--wp--preset--font-family--open-sans);
+               letter-spacing: 0;
+               line-height: 1rem;
+            }
+            input[type="checkbox"] {
+               border-radius: 0 !important;
+               margin-right: 0.5rem;
+               vertical-align: top;
+            }
+         }
+         .frm_form_field {
+            .forgot-password {
+               color: rgba(87, 47, 30, 0.8);
+               text-align: right;
+               font-family: var(--wp--preset--font-family--news-gothic-std);
+               font-size: var(--wp--preset--font-size--normal);
+               font-style: normal;
+               font-weight: 400;
+               letter-spacing: 0.96px;
+               line-height: 1;
+               text-decoration-line: underline;
+               text-decoration-style: solid;
+               text-decoration-skip-ink: auto;
+               text-decoration-thickness: auto;
+               text-transform: uppercase;
+               text-underline-offset: auto;
+            }
+         }
+         .frm_submit {
+            input[type="submit"] {
+               background-color: var(--wp--preset--color--primary-dark-brown);
+               border-width: 0;
+               border-radius: 0;
+               font-family: var(--wp--preset--font-family--news-gothic-std);
+               font-size: var(--wp--preset--font-size--paragraph-small);
+               letter-spacing: 0;
+               line-height: 3.25rem;
+               margin-top: 0.625rem;
+               margin-bottom: 0.625rem;
+               padding: 0 3.125rem;
+               text-transform: uppercase;
+               width: 100%;
+            }
+            + div {
+               order: 11;
+               + div {
+                  order: 11;
+               }
+            }
+         }
+      }
+   }
+}

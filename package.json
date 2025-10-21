@@ -1,0 +1,20 @@
+{
+  "name": "world-trade-center",
+  "version": "1.0.0",
+  "description": "Nej",
+  "main": "index.js",
+  "scripts": {
+    "extensions:dev": "wp-scripts start src/block-extensions/group.js --output-path=build/block-extensions",
+    "extensions:prod": "wp-scripts build src/block-extensions/group.js --output-path=build/block-extensions",
+    "sass:prod": "sass --no-source-map --style=compressed src/sass/index.scss:build/css/index.css",
+    "start": "sass --watch --update --style=expanded src/sass/index.scss:dev/css/index.min.css",
+    "build": "npm run extensions:prod && npm run sass:prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.93.2",
+    "@wordpress/scripts": "^30.23.0"
+  },
+  "dependencies": {}
+}
