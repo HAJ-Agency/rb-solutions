@@ -1,6 +1,5 @@
-{
-    "name": "haj/rb-solutions",
-    "type": "rb-solutions-theme",
+{    
+    "type": "rb-solutions",
     "authors": [
         {
             "name": "Kim Harrington Jansson",

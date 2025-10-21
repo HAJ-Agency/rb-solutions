@@ -1,14 +1,19 @@
 {
-  "name": "world-trade-center",
+  "name": "rb-solutions",
   "version": "1.0.0",
   "description": "Nej",
   "main": "index.js",
   "scripts": {
-    "extensions:dev": "wp-scripts start src/block-extensions/group.js --output-path=build/block-extensions",
-    "extensions:prod": "wp-scripts build src/block-extensions/group.js --output-path=build/block-extensions",
-    "sass:prod": "sass --no-source-map --style=compressed src/sass/index.scss:build/css/index.css",
-    "start": "sass --watch --update --style=expanded src/sass/index.scss:dev/css/index.min.css",
-    "build": "npm run extensions:prod && npm run sass:prod"
+    "extensions:dev": "wp-scripts start src/block-extensions/menu-behaviour.js src/block-extensions/column.js src/block-extensions/buttons.js src/block-extensions/media-text.js --output-path=build/block-extensions",
+    "extensions:build": "wp-scripts build src/block-extensions/menu-behaviour.js src/block-extensions/column.js src/block-extensions/buttons.js src/block-extensions/media-text.js --output-path=build/block-extensions",
+    "js:build": "wp-scripts build src/js/one.js src/js/two.js --output-path=build/js",
+    "js:dev": "wp-scripts start --source-path=src/js --output-path=dev/js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "sass:build": "sass --no-source-map --style=compressed src/sass/index.scss:build/css/index.css",
+    "sass:dev": "sass --watch --update --style=expanded src/sass/index.scss:dev/css/index.min.css",
+    "build": "npm run extensions:build && npm run sass:build",
+    "dev": "npm run sass:dev && npm run js:dev"
   },
   "author": "",
   "license": "ISC",
