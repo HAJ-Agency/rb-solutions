@@ -1,0 +1,15 @@
+@media (max-width: 781px) {
+   .wp-block-group,
+   .wp-block-column,
+   .wp-block-columns {
+      border: none;
+   }
+   .wp-block-column {
+      &:has(+ .wp-block-column) {
+         padding-bottom: var(--wp--preset--spacing--12) !important;
+      }
+      & + .wp-block-column {
+         padding-top: var(--wp--preset--spacing--12) !important;
+      }
+   }
+}

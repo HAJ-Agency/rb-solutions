@@ -7,7 +7,8 @@ namespace RBS;
  *
  * @since 1.0.0
  */
-include 'vendor/autoload.php';
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 // include get_stylesheet_directory() . '/assets/hooks/change-hamburger.php';
 // include get_stylesheet_directory() . '/assets/hooks/handle_non_admin_users.php';

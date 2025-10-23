@@ -125,6 +125,11 @@
          },
          "spacingSizes": [
             {
+               "name": "4px",
+               "size": "0.25rem",
+               "slug": "4"
+            },
+            {
                "name": "8px",
                "size": "0.5rem",
                "slug": "8"
@@ -156,32 +161,32 @@
             },
             {
                "name": "30px",
-               "size": "1.875rem",
+               "size": "clamp(1.5rem, 0.91vw + 1.056rem, 1.875rem)",
                "slug": "30"
             },
             {
                "name": "48px",
-               "size": "3rem",
+               "size": "clamp(1.5rem, 3.642vw - 0.278rem, 3rem)",
                "slug": "48"
             },
             {
                "name": "80px",
-               "size": "5rem",
+               "size": "clamp(1.5rem, 8.498vw - 2.648rem, 5rem)",
                "slug": "80"
             },
             {
                "name": "88px",
-               "size": "5.5rem",
+               "size": "clamp(1.5rem, 9.712vw - 3.241rem, 5.5rem)",
                "slug": "88"
             },
             {
                "name": "100px",
-               "size": "6.25rem",
+               "size": "clamp(1.5rem, 11.533vw - 4.129rem, 6.25rem)",
                "slug": "100"
             },
             {
                "name": "112px",
-               "size": "7rem",
+               "size": "clamp(1.5rem, 13.354vw - 5.018rem, 7rem)",
                "slug": "112"
             }
          ],
@@ -302,14 +307,14 @@
             },
             {
                "fluid": false,
-               "name": "Label",
-               "size": "1",
+               "name": "Label (12px)",
+               "size": "0.75rem",
                "slug": "label"
             },
             {
                "fluid": false,
                "name": "Paragraph",
-               "size": "1",
+               "size": "1rem",
                "slug": "paragraph"
             },
             {

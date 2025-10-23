@@ -7,13 +7,13 @@ define('ENV_TYPE', (WP_ENVIRONMENT_TYPE === 'development' ?  '/dev' : '/build'))
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\wp_enqueue_scripts_cb', 99);
 
 function wp_enqueue_scripts_cb() {
-   wp_enqueue_style('custom', get_stylesheet_directory_uri() . ENV_TYPE . '/css/index.min.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/index.css'));
+   wp_enqueue_style('custom', get_stylesheet_directory_uri() . ENV_TYPE . '/css/index.min.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/index.min.css'));
 }
 
 add_action('admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts_cb', 99);
 
 function admin_enqueue_scripts_cb() {
-   wp_enqueue_style('custom', get_stylesheet_directory_uri() . ENV_TYPE . '/css/index.min.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/index.css'));
+   wp_enqueue_style('custom', get_stylesheet_directory_uri() . ENV_TYPE . '/css/index.min.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/index.min.css'));
 }
 
 add_action('enqueue_block_assets', __NAMESPACE__ . '\enqueue_block_assets_cb');

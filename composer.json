@@ -7,12 +7,12 @@
         }
     ],
     "autoload": {
-        "psr-4": {
-            "Tiburon\\Assets\\Classes\\": "includes/assets/classes"
-        },
         "files": [
             "includes/hooks/actions.php",
             "includes/hooks/filters.php"
-        ]
+        ],
+        "psr-4": {
+            "Tiburon\\Assets\\Classes\\": "includes/assets/classes"
+        }
     }
 }
