@@ -1,0 +1,34 @@
+header {
+   position: fixed;
+   top: 1.5rem;
+   width: 100%;
+   z-index: 10;
+
+   .menu-dropdown-show {
+      position: relative;
+      &::after {
+         content: "";
+         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5' fill='none'%3E%3Cpath d='M0 0L10 0L5 5L0 0Z' fill='%23F5B71A'/%3E%3C/svg%3E");
+         height: 5px;
+         position: absolute;
+         right: 0px;
+         width: 10px;
+      }
+   }
+   .menu-dropdown {
+      height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      width: 100%;
+      &.shown {
+         height: 200px;
+         transition: height 0.5s ease;
+      }
+   }
+   .wp-block-navigation ul li {
+      line-height: 54px;
+      &.menu-dropdown-show {
+         padding-right: 24px;
+      }
+   }
+}
