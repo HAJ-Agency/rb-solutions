@@ -1,5 +1,5 @@
 .wp-block-group {
-   &:has(.custom-floating-link) {
+   &:has(> .custom-floating-link) {
       position: relative;
       .custom-floating-link {
          position: absolute;

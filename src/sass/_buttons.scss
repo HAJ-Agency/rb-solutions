@@ -1,85 +1,88 @@
 @use "mixins" as *;
 
 .wp-block-button {
-   &.is-style- {
-      &gray-wide,
-      &gray-default,
-      &orange-default {
-         .wp-element-button {
-            align-items: center;
-            column-gap: 1rem;
-            display: flex;
-            justify-content: space-between;
-            &::after {
-               @include transition;
-               background-color: var(--wp--preset--color--white);
-               border-color: var(--wp--preset--color--white);
-               border-radius: 50%;
-               border-style: solid;
-               border-width: 2px;
-               content: "";
-               display: inline-block;
-               height: 20px;
-               width: 20px;
-            }
-            &:hover {
-               cursor: pointer;
-               &::after {
-                  @include transition;
-               }
-            }
-         }
+  &.is-style- {
+    &gray-wide,
+    &gray-default,
+    &orange-default {
+      .wp-element-button {
+        align-items: center;
+        column-gap: 1rem;
+        display: flex;
+        justify-content: space-between;
+        &::after {
+          @include transition;
+          background-color: var(--wp--preset--color--white);
+          background-position: 8px center;
+          background-repeat: no-repeat;
+          background-size: 5px 10px;
+          border-color: var(--wp--preset--color--white);
+          border-radius: 50%;
+          border-style: solid;
+          border-width: 2px;
+          content: "";
+          display: inline-block;
+          height: 20px;
+          width: 20px;
+        }
+        &:hover {
+          cursor: pointer;
+          &::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='10' viewBox='0 0 5 10' fill='none'%3E%3Cpath d='M0 10V0L5 5L0 10Z' fill='%23CC4B00'/%3E%3C/svg%3E");
+          }
+        }
       }
-      &gray-wide,
-      &gray-default {
-         .wp-element-button {
-            background-color: var(--wp--preset--color--dark-grey);
-            color: var(--wp--preset--color--white);
-            &::after {
-               box-shadow: inset 0 0 0 7px var(--wp--preset--color--dark-grey);
-            }
-            &:hover {
-               &::after {
-                  box-shadow: inset 0 0 0 0 var(--wp--preset--color--dark-grey);
-               }
-            }
-         }
+    }
+    &gray-wide,
+    &gray-default {
+      .wp-element-button {
+        background-color: var(--wp--preset--color--dark-grey);
+        color: var(--wp--preset--color--white);
+        &::after {
+          box-shadow: inset 0 0 0 7px var(--wp--preset--color--dark-grey);
+        }
+        &:hover {
+          &::after {
+            box-shadow: inset 0 0 0 0 var(--wp--preset--color--dark-grey);
+          }
+        }
       }
-      &gray-wide {
-         width: 100%;
+    }
+    &gray-wide {
+      width: 100%;
+    }
+    &orange-default {
+      .wp-element-button {
+        background-color: var(--wp--preset--color--orange);
+        color: var(--wp--preset--color--white);
+        &::after {
+          box-shadow: inset 0 0 0 7px var(--wp--preset--color--orange);
+        }
+        &:hover {
+          &::after {
+            box-shadow: inset 0 0 0 0 var(--wp--preset--color--orange);
+          }
+        }
       }
-      &orange-default {
-         .wp-element-button {
-            background-color: var(--wp--preset--color--orange);
-            color: var(--wp--preset--color--white);
-            &::after {
-               box-shadow: inset 0 0 0 7px var(--wp--preset--color--orange);
-            }
-            &:hover {
-               &::after {
-                  box-shadow: inset 0 0 0 0 var(--wp--preset--color--orange);
-               }
-            }
-         }
+    }
+    &text-only {
+      @include transition;
+      align-items: center;
+      column-gap: 4px;
+      display: flex;
+      justify-content: space-between;
+      min-width: fit-content;
+      width: 0;
+      &:after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M4.6 5.65375L0 1.05375L1.05375 0L6.7075 5.65375L1.05375 11.3075L0 10.2538L4.6 5.65375Z' fill='white'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        content: "";
+        display: inline-block;
+        height: 11px;
+        width: 7px;
       }
-      &text-only {
-         @include transition;
-         align-items: center;
-         column-gap: 4px;
-         display: flex;
-         justify-content: space-between;
-         min-width: fit-content;
-         width: 0;
-         &:after {            
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M4.6 5.65375L0 1.05375L1.05375 0L6.7075 5.65375L1.05375 11.3075L0 10.2538L4.6 5.65375Z' fill='white'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center center;
-            content: "";
-            display: inline-block;
-            height: 11px;
-            width: 7px;
-         }         
-      }
-   }
+    }
+  }
 }

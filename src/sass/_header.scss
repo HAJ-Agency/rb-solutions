@@ -1,41 +1,73 @@
+@use "mixins" as *;
+
+:root
+  :where(a.wp-block-navigation-item__content:where(:not(.wp-element-button))),
+:root
+  :where(
+    a.wp-block-navigation-item__content:where(:not(.wp-element-button)):hover
+  ) {
+  border: none;
+}
 header {
-   position: fixed;
-   top: 1.5rem;
-   width: 100%;
-   z-index: 10;
-   .wp-block-navigation-item__content {
-      line-height: 46px;
-   }
-   .menu-dropdown-show {
-      padding-right: 1.5rem !important;
-      &::after {
-         content: "";
-         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5' fill='none'%3E%3Cpath d='M0 0L10 0L5 5L0 0Z' fill='%23F5B71A'/%3E%3C/svg%3E");
-         height: 5px;
-         position: absolute;
-         right: 7px;
-         width: 10px;
+  position: fixed;
+  top: 1.5rem;
+  width: 100%;
+  z-index: 10;
+  .wp-block-navigation-item__content {
+    line-height: 54px;
+  }
+  li:not(.menu-dropdown-show) {
+    a {
+      span {
+        position: relative;
+        &::after {
+          @include transition;
+          border-bottom: solid var(--wp--preset--color--deep-yellow) 1.5px;
+          bottom: -2px;
+          content: "";
+          display: block;
+          position: absolute;
+          width: 0;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
       }
-   }
-   .menu-dropdown {
-      grid-template-rows: 0;
-      overflow: hidden;
-      transition: grid-template-rows 0.25s ease;
-      &-content {
-         grid-template-columns: 33.33% 1fr;         
-         transition: visibility 0.25s;
-         visibility: hidden;
-      }
-      &.shown {
-         border-top: 1px solid var(--wp--preset--color--light-grey) solid;
-         grid-template-rows: 1fr;
-         transition: grid-template-rows 0.25s ease;
-      }
-   }
-   .menu-dropdown.shown {
-      .menu-dropdown-content {
-         visibility: visible;
-         transition: visibility 0.25s;
-      }
-   }
+    }
+  }
+  .menu-dropdown-show {
+    padding-right: 1.5rem !important;
+    &::after {
+      @include transition;
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5' fill='none'%3E%3Cpath d='M0 0L10 0L5 5L0 0Z' fill='%23F5B71A'/%3E%3C/svg%3E");
+      height: 5px;
+      position: absolute;
+      right: 7px;
+      width: 10px;
+    }
+    &.active::after {      
+      transform: rotate(-180deg);
+    }
+  }
+  .menu-dropdown {    
+    grid-template-rows: 0;
+    overflow: hidden;
+    &-content {      
+      grid-template-columns: 33.33% 1fr;
+      visibility: hidden;
+    }
+    &.shown {      
+      border-top: 1px solid var(--wp--preset--color--light-grey) solid;
+      grid-template-rows: 1fr;
+    }
+  }
+  .menu-dropdown.shown {
+    .menu-dropdown-content {
+      @include transition;
+      visibility: visible;
+    }
+  }
 }
