@@ -341,7 +341,6 @@
                "style": "none",
                "width": "0"
             },
-            "css": "ICON_HERE",
             "spacing": {
                "padding": {
                   "top": "0",
@@ -360,23 +359,46 @@
                "textTransform": "uppercase"
             },
             "variations": {
-               "orange-default": {
-                  "color": {
-                     "background": "var(--wp--preset--color--orange)",
-                     "text": "var(--wp--preset--color--white)"
-                  }                  
-               },
                "gray-default": {
                   "color": {
                      "background": "var(--wp--preset--color--dark-grey)",
                      "text": "var(--wp--preset--color--white)"
-                  }                  
+                  }
                },
                "gray-wide": {
                   "color": {
                      "background": "var(--wp--preset--color--dark-grey)",
                      "text": "var(--wp--preset--color--white)"
-                  }                  
+                  }
+               },
+               "orange-default": {
+                  "color": {
+                     "background": "var(--wp--preset--color--orange)",
+                     "text": "var(--wp--preset--color--white)"
+                  }
+               },
+               "text-only": {
+                  "border": {
+                     "radius": "0",
+                     "style": "none",
+                     "width": "0"
+                  },
+                  "color": {
+                     "background": "transparent",
+                     "text": "var(--wp--preset--color--white)"
+                  },
+                  "css": "width: 100%;",
+                  "spacing": {
+                     "padding": {
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0"
+                     }
+                  },
+                  "typography": {
+                     "lineHeight": "1.7"
+                  }
                }
             }
          },

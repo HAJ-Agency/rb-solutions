@@ -47,8 +47,6 @@
       }
       &gray-wide {
          width: 100%;
-         .wp-element-button {
-         }
       }
       &orange-default {
          .wp-element-button {
@@ -63,6 +61,25 @@
                }
             }
          }
+      }
+      &text-only {
+         @include transition;
+         align-items: center;
+         column-gap: 4px;
+         display: flex;
+         justify-content: space-between;
+         min-width: fit-content;
+         width: 0;
+         &:after {            
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M4.6 5.65375L0 1.05375L1.05375 0L6.7075 5.65375L1.05375 11.3075L0 10.2538L4.6 5.65375Z' fill='white'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            content: "";
+            display: inline-block;
+            height: 11px;
+            width: 7px;
+         }         
       }
    }
 }

@@ -1,0 +1,14 @@
+.wp-block-social-links {
+   .wp-social-link {
+      a {
+         svg {
+            order: 1;
+         }
+         span {
+            &:not(.screen-reader-text) {
+               margin-left: 0;
+            }
+         }
+      }
+   }
+}

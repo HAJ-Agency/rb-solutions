@@ -1,0 +1,55 @@
+@use "mixins" as *;
+
+@media (max-width: 781px) {
+   .wp-block-group {
+      &-is-layout-flex {
+         align-items: flex-start;
+         flex-direction: column;
+      }
+   }
+}
+
+.row {
+   &-hero {
+      @include transition;
+      max-width: 436px;
+      width: 100%;
+      @media (max-width: 781px) {
+         flex-direction: row;
+      }
+      @media (max-width: 1020px) {
+         align-items: stretch;
+         &-wrapper {
+            flex-direction: column;
+         }
+      }
+      &:has(.custom-floating-link) {
+         .custom-floating-link {
+            & + figure {
+               display: contents;
+               & + div {
+                  width: 100%;
+               }
+            }
+         }
+         .wp-block-buttons {
+            width: 100%;
+            .wp-block-button__link {
+               width: auto;
+            }
+         }
+         &:hover {
+            .wp-block-button {
+               &.is-style-text-only {
+                  @include transition;
+                  width: 100%;
+               }
+            }
+         }
+      }
+      &:hover {
+         @include transition;
+         background: rgba(0, 0, 0, 0.50)!important;
+      }
+   }
+}

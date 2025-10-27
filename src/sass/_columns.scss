@@ -1,0 +1,9 @@
+.columns- {
+   &hero {
+      .wp-block-column {
+         @media (max-width: 1020px) {
+            flex-basis: 50%!important;
+         }
+      }
+   }
+}
