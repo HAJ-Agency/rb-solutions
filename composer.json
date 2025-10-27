@@ -9,10 +9,14 @@
     "autoload": {
         "files": [
             "includes/hooks/actions.php",
-            "includes/hooks/filters.php"
+            "includes/hooks/filters.php",
+            "includes/classes/Metaboxes.php"
         ],
         "psr-4": {
-            "Tiburon\\Assets\\Classes\\": "includes/assets/classes"
+            "RBS\\INCLUDES\\CLASSES\\": "includes/classes"
         }
+    },
+    "config": {
+        "optimize-autoloader": true
     }
 }
