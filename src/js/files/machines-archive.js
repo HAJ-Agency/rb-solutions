@@ -1,9 +1,8 @@
-// const mixitup = require('mixitup');
-// import mixitupPagination from 'mixitup-pagination';
-
 (function ($) {
-  //   var mixitup = require("mixitup");
   $(function () {
+    if (!$(".machines-results-grid").length) {
+      return;
+    }
     var mixer = mixitup(".machines-results-grid", {
       selectors: {
         target: ".machine",

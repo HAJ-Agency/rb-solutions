@@ -1,5 +1,18 @@
 @use "sass:selector";
 
+@mixin blurBackground {  
+  // position: relative;
+  &::before {
+    content: "";
+    // filter: blur(25px);
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;  
+  }
+}
+
 @mixin mainTabText {
   color: var(--wp--preset--color--text-dark);
   font-family: var(--wp--preset--font-family--open-sans);

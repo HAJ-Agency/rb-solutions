@@ -34,9 +34,21 @@ body {
             }
             &.quality-group {
               border-right: solid var(--wp--preset--color--light-grey) 1px;
+              @media (max-width: 1254px) {
+                border-left: solid var(--wp--preset--color--light-grey) 1px;
+              }
             }
             &.status-group {
               background-color: var(--wp--preset--color--light-yellow);
+            }
+            &.designation-group {
+              @media (max-width: 1254px) {
+                border-right: solid var(--wp--preset--color--light-grey) 1px;
+              }
+              @media (max-width: 635px) {
+                border-top: solid var(--wp--preset--color--light-grey) 1px;
+                border-left: solid var(--wp--preset--color--light-grey) 1px;
+              }
             }
             button {
               all: unset;
@@ -83,7 +95,7 @@ body {
         display: grid;
         gap: 24px;
         grid-template-columns: repeat(auto-fill, minmax(448px, 1fr));
-        @media(max-width: 958px) {
+        @media (max-width: 958px) {
           grid-template-columns: auto;
         }
         justify-content: center;
@@ -160,9 +172,6 @@ body {
               }
             }
           }
-        }
-        .grid-item {
-          background-color: pink;
         }
       }
       .machine-results-paging {
@@ -265,6 +274,10 @@ body {
     background-color: var(--wp--preset--color--light-grey);
     font-size: 0.825rem;
     letter-spacing: 0.28px;
+    @media (max-width: 632px) {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
     & option {
       &:is(:focus, :hover) {
         background: var(--wp--preset--color--dark-grey);
