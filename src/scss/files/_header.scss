@@ -48,20 +48,25 @@ header {
       right: 7px;
       width: 10px;
     }
-    &.active::after {      
+    &.active::after {
       transform: rotate(-180deg);
     }
   }
-  .menu-dropdown {    
-    grid-template-rows: 0;
+  .menu-dropdown {
+    grid-template-rows: 0fr !important;
+    transition: grid-template-rows ease-in-out 1s;
+    align-items: end;
     overflow: hidden;
-    &-content {      
+    // grid-template-rows: 0;
+    // overflow: hidden;
+    &-content {
       grid-template-columns: 33.33% 1fr;
-      visibility: hidden;
+      overflow: hidden;
+      // visibility: hidden;
     }
-    &.shown {      
+    &.shown {
       border-top: 1px solid var(--wp--preset--color--light-grey) solid;
-      grid-template-rows: 1fr;
+      grid-template-rows: 1fr !important;
     }
   }
   .menu-dropdown.shown {

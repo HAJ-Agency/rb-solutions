@@ -1,25 +1,30 @@
 {
   "name": "rb-solutions",
   "version": "1.0.0",
-  "description": "Nej",
+  "description": "ToDo",
   "main": "index.js",
   "scripts": {
-    "extensions:dev": "wp-scripts start src/block-extensions/menu-behaviour.js src/block-extensions/column.js src/block-extensions/buttons.js src/block-extensions/media-text.js --output-path=build/block-extensions",
+    "build": "npm run extensions:build && npm run sass:build",
+    "dev": "npm run sass:dev && npm run js:dev",
     "extensions:build": "wp-scripts build src/block-extensions/menu-behaviour.js src/block-extensions/column.js src/block-extensions/buttons.js src/block-extensions/media-text.js --output-path=build/block-extensions",
+    "extensions:dev": "wp-scripts start src/block-extensions/menu-behaviour.js src/block-extensions/column.js src/block-extensions/buttons.js src/block-extensions/media-text.js --output-path=build/block-extensions",
     "js:build": "wp-scripts build src/js/one.js src/js/two.js --output-path=build/js",
     "js:dev": "wp-scripts start --source-path=src/js --output-path=dev/js",
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
     "sass:build": "sass --no-source-map --style=compressed src/sass/index.scss:build/css/index.css",
     "sass:dev": "sass --watch --update --style=expanded src/sass/index.scss:dev/css/index.min.css",
-    "build": "npm run extensions:build && npm run sass:build",
-    "dev": "npm run sass:dev && npm run js:dev"
+    "start": "wp-scripts start --webpack-src-dir=src --output-path=dev"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@wordpress/scripts": "^30.23.0",
+    "path": "^0.12.7",
     "sass": "^1.93.2",
-    "@wordpress/scripts": "^30.23.0"
+    "webpack-remove-empty-scripts": "^1.1.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "mixitup": "^3.3.2"
+  }
 }

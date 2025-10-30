@@ -10,7 +10,8 @@
         "files": [
             "includes/hooks/actions.php",
             "includes/hooks/filters.php",
-            "includes/classes/Metaboxes.php"
+            "includes/classes/Metaboxes.php",
+            "includes/shortcodes/machines-archive-content.php"
         ],
         "psr-4": {
             "RBS\\INCLUDES\\CLASSES\\": "includes/classes"
