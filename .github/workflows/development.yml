@@ -1,4 +1,4 @@
-name: Publish WTC Theme to dev.wtcgoteborg.se
+name: Publish RB Solutions Theme to rb.hajagency.com
 
 on:
    push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
    web-deploy:
-      name: 🚀 Deploy WTC Theme to dev.wtcgoteborg.se
+      name: 🚀 Deploy RB Solutions Theme to rb.hajagency.com
       runs-on: ubuntu-latest
       steps:
          - name: 🚚 Get Latest Code
@@ -16,14 +16,14 @@ jobs:
          - name: 📂 Sync Files
            uses: SamKirkland/web-deploy@v1
            with:
-              target-server: server17.serverdrift.com
-              remote-user: wtcgoteborg
+              target-server: shishi.oderland.com
+              remote-user: hajagenc
               private-ssh-key: ${{ secrets.SSH_KEY }}
-              destination-path: /home/wtcgoteborg/dev.wtcgoteborg.se/wp-content/themes/world-trade-center/
-              rsync-options: --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+              destination-path: /home/hajagenc/rb.hajagency.com/wp-content/themes/rb-solutions/
+              rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
 
          - name: ✅ Done
-           run: echo "Dseployment to dev.wtcgoteborg.se complete!"
+           run: echo "Deployment to rb.hajagency.com complete!"
 
 # https://github.com/SamKirkland/web-deploy
 # https://github.com/actions/checkout
