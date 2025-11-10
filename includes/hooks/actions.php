@@ -19,7 +19,7 @@ function wp_enqueue_scripts_cb() {
 add_action('admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts_cb', 99);
 
 function admin_enqueue_scripts_cb() {
-   wp_enqueue_style('custom', get_stylesheet_directory_uri() . ENV_TYPE . '/css/editor.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/screen.css'));
+   wp_enqueue_style('custom-admin', get_stylesheet_directory_uri() . ENV_TYPE . '/css/editor.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/editor.css'));
 }
 
 add_action('enqueue_block_assets', __NAMESPACE__ . '\enqueue_block_assets_cb');
@@ -71,8 +71,7 @@ function transition_post_status_callback($new_status, $old_status, $post) {
       if ($old_status == $new_status) :
          return;
       endif;
-      $metaboxes = new Metaboxes('machines');
-      error_log(print_r(['transition_post_status_callback' => $post->post_type], true));
+      $metaboxes = new Metaboxes('machines');      
       $metaboxes->update_json_file();
    endif;
 }

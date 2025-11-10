@@ -158,7 +158,7 @@ function machines_archive_content_callback() {
       </div>
       <div class="mixitup-page-list machine-results-paging"></div>
    </div>
-   
+
 <?php
    return ob_get_clean();
 }
