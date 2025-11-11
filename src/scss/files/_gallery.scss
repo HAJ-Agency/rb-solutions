@@ -1,0 +1,17 @@
+@use "mixins" as *;
+
+.wp-block-gallery.has-nested-images.columns-4 {
+  figure.wp-block-image:not(#individual-image) {
+    border: solid 1px var(--wp--preset--color--light-grey);
+    &:first-child {
+      width: 100%;
+    }
+    &:not(:first-child) {
+      &:hover {
+        @include transition;
+        cursor: pointer;
+        border-color: var(--wp--preset--color--dark-gray);
+      }
+    }
+  }
+}

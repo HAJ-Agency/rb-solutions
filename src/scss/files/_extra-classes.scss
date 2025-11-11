@@ -6,6 +6,11 @@
 .width-100 {
   width: 100%;
 }
+.position- {
+  &relative {
+    position: relative;
+  }
+}
 .column-content-bottom {
   display: flex;
   flex-direction: column;
@@ -53,7 +58,7 @@
       li {
         border: none;
       }
-      > div { 
+      > div {
         flex-basis: 100% !important;
         &:first-child {
           padding-top: var(--wp--preset--spacing--48) !important;
@@ -75,7 +80,7 @@
   @media (max-width: 680px) {
     .machine-card {
       flex-direction: column;
-      row-gap: 0; 
+      row-gap: 0;
     }
   }
 }
