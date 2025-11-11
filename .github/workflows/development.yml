@@ -16,6 +16,7 @@ jobs:
          - name: 📂 Sync Files
            uses: SamKirkland/web-deploy@v1
            with:
+              source-path: ./
               target-server: shishi.oderland.com
               remote-user: hajagenc
               private-ssh-key: ${{ secrets.SSH_KEY }}
