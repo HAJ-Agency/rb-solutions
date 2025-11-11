@@ -129,11 +129,11 @@ error_log(print_r('save_metabox', true));
                 $excerpt = !empty(get_the_excerpt($id)) ? get_the_excerpt($id) : 'Lorem Ipsum Doloris';
                 $thumbnail_id = get_post_thumbnail_id($id);
 
-                $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'thumbnail') ? wp_get_attachment_image_url($thumbnail_id, 'thumbnail') : 'http://rb-solutions.local/wp-content/uploads/2025/10/placeholder-machine-150x150.png';
-                $medium_url = wp_get_attachment_image_url($thumbnail_id, 'medium') ? wp_get_attachment_image_url($thumbnail_id, 'medium') : 'http://rb-solutions.local/wp-content/uploads/2025/10/placeholder-machine-300x225.png';
-                $medium_large_url = wp_get_attachment_image_url($thumbnail_id, 'medium_large') ? wp_get_attachment_image_url($thumbnail_id, 'medium_large') : 'http://rb-solutions.local/wp-content/uploads/2025/10/placeholder-machine-768x577.png';
-                $large_url = wp_get_attachment_image_url($thumbnail_id, 'large') ? wp_get_attachment_image_url($thumbnail_id, 'large') : 'http://rb-solutions.local/wp-content/uploads/2025/10/placeholder-machine-1024x768.png';
-                $full_url = wp_get_attachment_image_url($thumbnail_id, 'full') ? wp_get_attachment_image_url($thumbnail_id, 'full') : 'http://rb-solutions.local/wp-content/uploads/2025/10/placeholder-machine.png';
+                $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'thumbnail') ? wp_get_attachment_image_url($thumbnail_id, 'thumbnail') : 'https://rb.hajagency.com/wp-content/uploads/2025/10/placeholder-machine-150x150.png';
+                $medium_url = wp_get_attachment_image_url($thumbnail_id, 'medium') ? wp_get_attachment_image_url($thumbnail_id, 'medium') : 'https://rb.hajagency.com/wp-content/uploads/2025/10/placeholder-machine-300x225.png';
+                $medium_large_url = wp_get_attachment_image_url($thumbnail_id, 'medium_large') ? wp_get_attachment_image_url($thumbnail_id, 'medium_large') : 'https://rb.hajagency.com/wp-content/uploads/2025/10/placeholder-machine-768x577.png';
+                $large_url = wp_get_attachment_image_url($thumbnail_id, 'large') ? wp_get_attachment_image_url($thumbnail_id, 'large') : 'https://rb.hajagency.com/wp-content/uploads/2025/10/placeholder-machine-1024x768.png';
+                $full_url = wp_get_attachment_image_url($thumbnail_id, 'full') ? wp_get_attachment_image_url($thumbnail_id, 'full') : 'https://rb.hajagency.com/wp-content/uploads/2025/10/placeholder-machine.png';
 
                 $machines[] = (object) [
                     'id' => $id,
