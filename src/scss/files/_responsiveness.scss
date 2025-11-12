@@ -52,6 +52,18 @@
   }
 }
 @media (max-width: 600px) {
+  .stack-on-mobile {
+    &-worldwide {
+      grid-template-columns: 1fr;
+      .wp-block-group {
+        text-align: center;
+        h2,
+        p {
+          margin-left: auto !important;
+        }
+      }
+    }
+  }
   .cta-card {
     flex-direction: column !important;
     row-gap: 1.5rem;
