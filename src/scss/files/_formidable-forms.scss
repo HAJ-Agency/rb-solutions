@@ -1,0 +1,109 @@
+@use "mixins" as *;
+
+.frm_style_formidable-style.with_frm_style {
+  --border-radius: 0;
+  --field-font-size: 1rem;
+  --field-height: 2.75rem;
+  --field-pad: 0 1.5rem;
+  --text-color: var(--wp--preset--color--black);
+  .form-field {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1.5rem;
+
+    select,
+    textarea,
+    input[type="checkbox"],
+    input[type="checkbox"]:not(:checked),
+    input:not([type="file"]):not([type="range"]):not([type="readonly"]) {
+      &:focus {
+        border-color: var(--wp--preset--color--deep-yellow);
+        box-shadow: none;
+      }
+    }
+  }
+  select,
+  textarea {
+    border-top-color: var(--wp--preset--color--white);
+    border-right-color: var(--wp--preset--color--white);
+    border-bottom: 1px solid var(--wp--preset--color--deep-yellow);
+    border-left-color: var(--wp--preset--color--white);
+  }
+  .frm_inside_container {
+    > label {
+      @include transition;
+      box-sizing: border-box;
+      left: 0;
+      line-height: var(--field-height);
+      top: calc(2px * var(--field-height));
+      .frm_required {
+        visibility: hidden;
+      }
+    }
+    &.frm_label_float_top {
+      > label {
+        font-size: 12px;
+        line-height: 12px;
+        top: calc(1px + 0.2 * var(--field-height));
+        .frm_required {
+          visibility: visible;
+        }
+      }
+    }
+    > input {
+      border-top-color: var(--wp--preset--color--white);
+      border-right-color: var(--wp--preset--color--white);
+      border-bottom: 1px solid var(--wp--preset--color--deep-yellow);
+      border-left-color: var(--wp--preset--color--white);
+      line-height: var(--field-height);
+      padding: 0 1.5rem;
+    }
+  }
+  .frm_fields_container {
+    .frm_checkbox {
+      input[type="checkbox"] {
+        &:not([disabled]) {
+          &:checked {
+            background-color: var(--wp--preset--color--deep-yellow) !important;
+            border-color: var(--wp--preset--color--deep-yellow) !important;
+            box-shadow: none !important;
+          }
+        }
+      }
+    }
+  }
+  .vertical_radio {
+    .frm_checkbox {
+      margin-bottom: 0;
+    }
+  }
+  input[type="checkbox"] {
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+  .frm_checkbox {
+    label {
+      line-height: 1;
+    }
+  }
+  .frm_submit {
+    button {
+      background-color: var(--wp--preset--color--orange);
+      border-radius: 0;
+      border-width: 0;
+      box-shadow: none;
+      color: var(--wp--preset--color--white);
+      font-weight: 500;
+      line-height: 2.75rem;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      &:hover {
+        background-color: var(--wp--preset--color--orange);
+        color: var(--wp--preset--color--white);
+      }
+    }
+  }
+}
