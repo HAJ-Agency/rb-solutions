@@ -7,11 +7,32 @@
 @media (max-width: 1201px) {
   .contact-special-grid {
     grid-template-columns: 1fr;
+    &-3-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      .wp-block-group {
+        &:nth-child(2) {
+          border-right: none !important;
+          border-bottom: solid 1px var(--wp--preset--color--light-grey);
+        }
+        &:nth-child(3) {
+          border-top: solid 1px var(--wp--preset--color--light-grey);
+          border-right: solid 1px var(--wp--preset--color--light-grey);
+        }
+      }
+    }
   }
 }
 @media (max-width: 781px) {
   .contact-special-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    &-3-columns {
+      grid-template-columns: 1fr;
+      .wp-block-group {
+        border: none !important;
+        padding-top: var(--wp--preset--spacing--12) !important;
+        padding-bottom: var(--wp--preset--spacing--12) !important;
+      }
+    }
   }
   .hide-mobile {
     display: none !important;
