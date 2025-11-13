@@ -4,8 +4,6 @@ body {
   &.post-type-archive-machines {
     .all-machines {
       max-width: var(--wp--style--global--wide-size);
-      padding-right: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
-      padding-left: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
       .machines-filters-grid {
         border-top: solid var(--wp--preset--color--light-grey) 1px;
         display: flex;
@@ -71,6 +69,9 @@ body {
           &.one,
           &.two {
             border-bottom: solid var(--wp--preset--color--light-grey) 1px;
+            @media (min-width: 1440px) {
+              border-right: solid var(--wp--preset--color--light-grey) 1px;
+            }
           }
           &.one {
             border-right: solid var(--wp--preset--color--light-grey) 1px;
@@ -90,11 +91,15 @@ body {
         margin-bottom: var(--wp--preset--spacing--24);
         margin-left: auto;
         max-width: var(--wp--style--global--content-size);
+        padding-right: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+        padding-left: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
       }
       .machines-results-grid {
         display: grid;
         gap: 24px;
         grid-template-columns: repeat(auto-fill, minmax(448px, 1fr));
+        padding-right: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+        padding-left: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
         @media (max-width: 958px) {
           grid-template-columns: auto;
         }
