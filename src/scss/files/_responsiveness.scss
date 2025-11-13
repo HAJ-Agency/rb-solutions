@@ -2,12 +2,22 @@
   .border-sides-big {
     border-left: solid 1px var(--wp--preset--color--light-grey);
     border-right: solid 1px var(--wp--preset--color--light-grey);
+    &-white {
+      border-left: solid 1px var(--wp--preset--color--white-20);
+      border-right: solid 1px var(--wp--preset--color--white-20);
+    }
   }
   .border-right-big {
     border-right: solid 1px var(--wp--preset--color--light-grey);
+    &-white {
+      border-right: solid 1px var(--wp--preset--color--white-20);
+    }
   }
   .border-left-big {
     border-left: solid 1px var(--wp--preset--color--light-grey);
+    &-white {
+      border-left: solid 1px var(--wp--preset--color--white-20);
+    }
   }
 }
 
