@@ -1,3 +1,16 @@
+@media (min-width: 1440px) {
+  .border-sides-big {
+    border-left: solid 1px var(--wp--preset--color--light-grey);
+    border-right: solid 1px var(--wp--preset--color--light-grey);
+  }
+  .border-right-big {
+    border-right: solid 1px var(--wp--preset--color--light-grey);
+  }
+  .border-left-big {
+    border-left: solid 1px var(--wp--preset--color--light-grey);
+  }
+}
+
 @media (max-width: 1400px) {
   .cta-card {
     margin-left: var(--wp--preset--spacing--24) !important;
