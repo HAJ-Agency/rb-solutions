@@ -22,6 +22,12 @@ function admin_enqueue_scripts_cb() {
    wp_enqueue_style('custom-admin', get_stylesheet_directory_uri() . ENV_TYPE . '/css/editor.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/editor.css'));
 }
 
+add_action('login_enqueue_scripts', __NAMESPACE__ . '\login_page_styles_cb');
+
+function login_page_styles_cb() {
+   wp_enqueue_style('custom-login', get_stylesheet_directory_uri() . ENV_TYPE . '/css/screen.css', [], filemtime(get_stylesheet_directory() . ENV_TYPE . '/css/screen.css'));
+}
+
 add_action('enqueue_block_assets', __NAMESPACE__ . '\enqueue_block_assets_cb');
 
 function enqueue_block_assets_cb() {
