@@ -97,7 +97,7 @@ body {
       .machines-results-grid {
         display: grid;
         gap: 24px;
-        grid-template-columns: repeat(auto-fill, minmax(448px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
         padding-right: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
         padding-left: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
         @media (max-width: 958px) {
