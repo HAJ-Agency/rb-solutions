@@ -3,6 +3,7 @@
     if (!$(".machines-results-grid").length) {
       return;
     }
+
     var mixer = mixitup(".machines-results-grid", {
       selectors: {
         target: ".machine",
@@ -28,20 +29,28 @@
       },
     });
 
+    var params = parseQueryString();
+    $.each(params, function (index, param) {
+      mixer.setFilterGroupSelectors(param[0], "." + param[1]);
+    })
+    mixer.parseFilterGroups();
+
     $(".sorting-group select").on("change", function (e) {
       mixer.sort($(this).find(":selected").attr("data-sort"));
     });
-    // $(document).on("change", ".sorting-group", function () {
-    //   console.log("heya");
-    // });
-    // $("select").on("change", function () {
-    //   console.log(this.value);
-    // });
-    // $(".banana").on("change", function (e) {
-    //   e.preventDefault();
-    //   let sortOn = $(this).find(":selected").attr("data-sort");
-    //   console.log(sortOn);
-    //   // $(".machines-results-grid").mixItUp("sort", sortOn);
-    // });
   });
+
+  function parseQueryString() {
+    var parsedParameters = [],
+      uriParameters = location.search.substr(1).split("&");
+
+    for (var i = 0; i < uriParameters.length; i++) {
+      var parameter = uriParameters[i].split("=");
+      if (parameter[0] && parameter[1]) {
+        parsedParameters.push([parameter[0], parameter[1]]);
+      }
+    }
+
+    return parsedParameters;
+  }
 })(jQuery);

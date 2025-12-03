@@ -25,3 +25,11 @@ Mixitup
 https://github.com/patrickkunka/mixitup
 https://github.com/patrickkunka/mixitup-multifilter
 https://github.com/patrickkunka/mixitup-pagination
+
+
+
+- Lägga filter på query blocket
+- använda select2
+- taxonomier och/eller taggar
+
+

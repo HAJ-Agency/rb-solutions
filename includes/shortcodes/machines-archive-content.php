@@ -18,7 +18,7 @@ function machines_archive_content_callback() {
    <div class="all-machines">
       <form class="machines-filters-grid">
          <div class="column one">
-            <fieldset class="status-group" data-filter-group>
+            <fieldset class="status-group" data-filter-group="status">
                <div>
                   <button type="reset" data-sort="date:desc">Clear All</button>
                </div>
@@ -37,7 +37,7 @@ function machines_archive_content_callback() {
             </fieldset>
          </div>
          <div class="column two">
-            <fieldset class="quality-group" data-filter-group>
+            <fieldset class="quality-group" data-filter-group="quality">
                <div class="filter-button">
                   <label>
                      <input type="radio" name="quality" value=".new" />
