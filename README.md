@@ -1,3 +1,7 @@
+# Workflow
+1. build
+2. push
+
 # rb-solutions
 Tiburon child theme for RB Solutions.
 
