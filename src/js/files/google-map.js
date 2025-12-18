@@ -39,9 +39,9 @@
   $(function () {
     if ($("#googlemap").length) {
       let map;
-      let options = {
-        center: { lat: 57.61358297098581, lng: 19.459190387346666 },
-        zoom: 3.9,
+      let options = {        
+        center: { lat: 54.06051066099781, lng: 23.49315597208257 },
+        zoom: 3.7,
         mapId: "263471ae1c206f534acb7728",
         disableDefaultUI: true,
         zoomControl: false,
