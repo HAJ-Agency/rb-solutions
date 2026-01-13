@@ -23,11 +23,11 @@ body {
             }
             &.status-group,
             &.quality-group,
-            &.designation-group {
+            &.machine_type-group {
               padding: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
             }
             &.quality-group,
-            &.designation-group {
+            &.machine_type-group {
               background-color: var(--wp--preset--color--white);
             }
             &.quality-group {
@@ -39,7 +39,7 @@ body {
             &.status-group {
               background-color: var(--wp--preset--color--light-yellow);
             }
-            &.designation-group {
+            &.machine_type-group {
               @media (max-width: 1254px) {
                 border-right: solid var(--wp--preset--color--light-grey) 1px;
               }
@@ -157,7 +157,7 @@ body {
                     margin-top: var(--wp--preset--spacing--12);
                     margin-bottom: 0;
                   }
-                  &-designation {
+                  &-machine-type {
                     font-size: var(--wp--preset--font-size--label);
                     font-style: normal;
                     font-weight: 500;
@@ -241,7 +241,7 @@ body {
   }
 }
 .sorting-group,
-.designation-group {
+.machine_type-group {
   > select {
     appearance: none;
     -webkit-appearance: none;
@@ -273,7 +273,7 @@ body {
     }
   }
 }
-.designation-group {
+.machine_type-group {
   padding: 0.5rem 2rem 0.5rem 0.5rem;
   > select {
     background-color: var(--wp--preset--color--light-grey);

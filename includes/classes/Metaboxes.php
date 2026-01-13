@@ -15,7 +15,7 @@ $metaboxes->init();
 class Metaboxes {
     static $meta_prefix = '';
     public $post_type;
-    public $selected_status, $selected_quality, $selected_year, $selected_designation;
+    public $selected_status, $selected_quality, $selected_year, $selected_machine_type;
 
     public function __construct($post_type) {
         $this->post_type = $post_type;
@@ -31,15 +31,15 @@ class Metaboxes {
     }
 
     public function extra_fields_box_callback($post) {
-        $this->selected_designation = get_post_meta($post->ID, 'designation', true) ? get_post_meta($post->ID, 'designation', true) : 'Designation';
+        $this->selected_machine_type = get_post_meta($post->ID, 'machine_type', true) ? get_post_meta($post->ID, 'machine_type', true) : 'Machine Type';
         $this->selected_quality = get_post_meta($post->ID, 'quality', true) ? get_post_meta($post->ID, 'quality', true) : 'New';
         $this->selected_status = get_post_meta($post->ID, 'status', true) ? get_post_meta($post->ID, 'status', true) : 'For Sale';
         $this->selected_year = get_post_meta($post->ID, 'year', true) ? get_post_meta($post->ID, 'year', true) : 1970;
 ?>
         <div>
             <div>
-                <label>Designation:</label>
-                <input type="text" name="extra[designation]" value="<?= $this->selected_designation;  ?>" />
+                <label>Machine Type:</label>
+                <input type="text" name="extra[machine_type]" value="<?= $this->selected_machine_type;  ?>" />
             </div>
             <div>
                 <strong>Status:</strong>
@@ -142,7 +142,7 @@ error_log(print_r('save_metabox', true));
                     'date' => get_post_timestamp($id),
                     'permalink' => get_the_permalink($id),
                     'meta_fields' => (object) [
-                        'designation' => get_post_meta($id, 'designation', true),
+                        'machine_type' => get_post_meta($id, 'machine_type', true),
                         'quality' => get_post_meta($id, 'quality', true),
                         'status' => get_post_meta($id, 'status', true),
                         'year' => get_post_meta($id, 'year', true),

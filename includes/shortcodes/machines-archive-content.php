@@ -9,10 +9,10 @@ function machines_archive_content_callback() {
    $upload_dir = wp_get_upload_dir();
    $file_path = $upload_dir['basedir'] . '/data/machines.json';
    $machines_json = json_decode(file_get_contents($file_path), true);
-   $unique_designations = array_filter(array_unique(array_map(function ($arr) {
-      return ucwords(strtolower($arr['meta_fields']['designation']));
+   $unique_machine_types = array_filter(array_unique(array_map(function ($arr) {
+      return ucwords(strtolower($arr['meta_fields']['machine_type']));
    }, $machines_json)));
-   sort($unique_designations);
+   sort($unique_machine_types);
 ?>
 
    <div class="all-machines">
@@ -53,7 +53,7 @@ function machines_archive_content_callback() {
                </div>
             </fieldset>
 
-            <fieldset class="designation-group" data-filter-group>
+            <fieldset class="machine_type-group" data-filter-group>
                <select>
                   <button>
                      <div>
@@ -67,11 +67,11 @@ function machines_archive_content_callback() {
                         </div>
                      </option>
                      <?php
-                     foreach ($unique_designations as $designation) :
+                     foreach ($unique_machine_types as $machine_type) :
                      ?>
-                        <option value=".<?= sanitize_title($designation) ?>">
+                        <option value=".<?= sanitize_title($machine_type) ?>">
                            <div class="custom-option">
-                              <span class="option-text"><?= $designation ?></span>
+                              <span class="option-text"><?= $machine_type ?></span>
                            </div>
                         </option>
                      <?php
@@ -125,11 +125,11 @@ function machines_archive_content_callback() {
             $date = $machine['date'];
             $permalink = $machine['permalink'];
 
-            $designation = $machine['meta_fields']['designation'];
+            $machine_type = $machine['meta_fields']['machine_type'];
             $quality = $machine['meta_fields']['quality'];
             $status = $machine['meta_fields']['status'];
             $year = $machine['meta_fields']['year'];
-            $filters = ($designation ? sanitize_title($designation) . " " : "") .
+            $filters = ($machine_type ? sanitize_title($machine_type) . " " : "") .
                ($quality ? sanitize_title($quality) . " " : "") .
                ($status ? sanitize_title($status) . " " : "") .
                ($year ? 'year-' . sanitize_title($year) . " " : "");
@@ -146,7 +146,7 @@ function machines_archive_content_callback() {
                      <?= gmdate("Y-m-d", $date) ?>
                      <div class="machine-card-quality"><?= $quality ?><?= $year ? ": <span>" . $year . "</span>" : "" ?></div>
                      <h4 class="machine-card-title"><?= $title ?></h4>
-                     <?= $designation ? '<div class="machine-card-designation">' . $designation . '</div>' : '' ?>
+                     <?= $machine_type ? '<div class="machine-card-machine_type">' . $machine_type . '</div>' : '' ?>
                      <p class="machine-card-excerpt"><?= $excerpt ?></p>
                      <a class="machine-card-button" href="<?= $permalink ?>" target="_self">Read More<span class="screen-reader-text">: New Machine 1</span></a>
                   </div>

@@ -32,13 +32,20 @@
     var params = parseQueryString();
     $.each(params, function (index, param) {
       mixer.setFilterGroupSelectors(param[0], "." + param[1]);
-    })
+    });
     mixer.parseFilterGroups();
 
     $(".sorting-group select").on("change", function (e) {
       mixer.sort($(this).find(":selected").attr("data-sort"));
     });
   });
+
+  $(document).on("click", ".machine-card", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const link = $(this).find(".machine-card-button").attr("href");
+    window.location.href = link;
+  })
 
   function parseQueryString() {
     var parsedParameters = [],
