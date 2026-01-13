@@ -11,10 +11,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
          - name: 🚚 Get Latest Code
-           uses: actions/checkout@v5
-
+           uses: HAJ-Agency/checkout@v6.0.1
+           
          - name: 📂 Sync Files
-           uses: SamKirkland/web-deploy@v1
+           uses: HAJ-Agency/web-deploy@v1
            with:
               source-path: ./
               target-server: shishi.oderland.com
@@ -25,7 +25,6 @@ jobs:
 
          - name: ✅ Done
            run: echo "Deployment to rb.hajagency.com complete!"
-
 # https://github.com/SamKirkland/web-deploy
 # https://github.com/actions/checkout
 # https://stackoverflow.com/questions/58347746/automating-the-build-and-publish-process-with-github-actions-and-github-package
