@@ -11,7 +11,7 @@ import Splide, { SplideTrack } from "@splidejs/splide";
       .each(function () {
         const gallery = $(this);
         const className = counter === 1 ? "main-carousel" : "thumbnails-carousel";
-        // wrap all figure tags in gallery.html in <li> tag
+        // wrap all figure tags in gallery.html in <li> tag        
         $(this).find("figure").wrap("<li class='splide__slide'></li>");
         $(this).replaceWith($('<div class="splide ' + className + '"><div class="splide__track"><ul class="splide__list">' + gallery.html() + "</ul></div></div>"));
 
@@ -28,7 +28,7 @@ import Splide, { SplideTrack } from "@splidejs/splide";
           heightRatio: 0.6,
           cover: true,
         });
-        if ($("#splide02").length) {
+        if ($(".thumbnails-carousel").length) {
           var thumbnails = new Splide(".thumbnails-carousel", {
             dragMinThreshold: 40,
             fixedWidth: 159,
@@ -39,9 +39,9 @@ import Splide, { SplideTrack } from "@splidejs/splide";
             isNavigation: true,
             focus: "center",
             breakpoints: {
-              600: {
-                fixedWidth: 60,
-                fixedHeight: 44,
+              782: {
+                fixedWidth: "25%",
+                heightRatio: 0.25,
               },
             },
           });
@@ -52,20 +52,6 @@ import Splide, { SplideTrack } from "@splidejs/splide";
         } else {
           main.mount();
         }
-
       });
-
-    /**
-     * When a user clicks on any image in the gallery except the first one,
-     * it swaps the clicked image with the first image in the gallery.
-     */
-    // $(document).on("click", ".wp-block-gallery figure:not(:first-child)", function (e) {
-    //   e.preventDefault();
-    //   const firstFigure = $(".wp-block-gallery figure:first-child");
-    //   const clickedFigure = $(this);
-    //   let clickedImageIndex = $(this).index();
-    //   $(firstFigure).insertAfter($(".wp-block-gallery figure:nth-child(" + (clickedImageIndex + 1) + ")"));
-    //   $(this).parent().prepend(clickedFigure);
-    // });
   });
 })(jQuery);

@@ -39,8 +39,17 @@ class Metaboxes {
         <div>
             <div>
                 <label>Machine Type:</label>
-                <input type="text" name="extra[machine_type]" value="<?= $this->selected_machine_type;  ?>" />
+                <!-- <input type="text" name="extra[machine_type]" value="<?= $this->selected_machine_type;  ?>" /> -->
+                <select name="extra[machine_type]">
+                    <option value="">-- Select --</option>
+                    <option value="Ballast Profiling machine" <?php selected($this->selected_machine_type, 'Ballast Profiling machine') ?>>Ballast Profiling machine</option>
+                    <option value="Tamping machine" <?php selected($this->selected_machine_type, 'Tamping machine') ?>>Tamping machine</option>
+                    <option value="Stabilizing machine" <?php selected($this->selected_machine_type, 'Stabilizing machine') ?>>Stabilizing machine</option>
+                    <option value="Ballast Cleaning machine" <?php selected($this->selected_machine_type, 'Ballast Cleaning machine') ?>>Ballast Cleaning machine</option>
+                    <option value="Renovation machine" <?php selected($this->selected_machine_type, 'Renovation machine') ?>>Renovation machine</option>
+                </select>
             </div>
+
             <div>
                 <strong>Status:</strong>
                 <label>
@@ -100,11 +109,11 @@ class Metaboxes {
             // delete the field if the value is empty
             if (! $value) {
                 delete_post_meta($post_id, $key);
-            } else {                
+            } else {
                 update_post_meta($post_id, $key, $value); // add_post_meta() works automatically
             }
         }
-error_log(print_r('save_metabox', true));
+        error_log(print_r('save_metabox', true));
         $this->update_json_file();
 
         return $post_id;
