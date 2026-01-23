@@ -477,7 +477,8 @@
           "fontStyle": "normal",
           "fontWeight": "400",
           "letterSpacing": "0.18px",
-          "lineHeight": "1.4"
+          "lineHeight": "1.4",
+          "textAlign": "left"
         }
       },
       "cite": {
