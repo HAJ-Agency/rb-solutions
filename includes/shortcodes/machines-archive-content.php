@@ -2,11 +2,14 @@
 
 namespace RBS\ASSETS\SHORTCODES;
 
+use WP_Query;
+
 add_shortcode('machines_archive_content', __NAMESPACE__ . '\machines_archive_content_callback');
 
 function machines_archive_content_callback() {
    ob_start();
-   $upload_dir = wp_get_upload_dir();
+   /** @var array{basedir: string, baseurl: string} $upload_dir */
+   $upload_dir = \wp_get_upload_dir();
    $file_path = $upload_dir['basedir'] . '/data/machines.json';
    $machines_json = json_decode(file_get_contents($file_path), true);
    $unique_machine_types = array_filter(array_unique(array_map(function ($arr) {
@@ -69,7 +72,7 @@ function machines_archive_content_callback() {
                      <?php
                      foreach ($unique_machine_types as $machine_type) :
                      ?>
-                        <option value=".<?= sanitize_title($machine_type) ?>">
+                        <option value=".<?= \sanitize_title($machine_type) ?>">
                            <div class="custom-option">
                               <span class="option-text"><?= $machine_type ?></span>
                            </div>
@@ -129,10 +132,10 @@ function machines_archive_content_callback() {
             $quality = $machine['meta_fields']['quality'];
             $status = $machine['meta_fields']['status'];
             $year = $machine['meta_fields']['year'];
-            $filters = ($machine_type ? sanitize_title($machine_type) . " " : "") .
-               ($quality ? sanitize_title($quality) . " " : "") .
-               ($status ? sanitize_title($status) . " " : "") .
-               ($year ? 'year-' . sanitize_title($year) . " " : "");
+            $filters = ($machine_type ? \sanitize_title($machine_type) . " " : "") .
+               ($quality ? \sanitize_title($quality) . " " : "") .
+               ($status ? \sanitize_title($status) . " " : "") .
+               ($year ? 'year-' . \sanitize_title($year) . " " : "");
             $filters = trim($filters);
 
             $image_url = $machine['featured_image']['src']['medium_large'];
@@ -140,7 +143,7 @@ function machines_archive_content_callback() {
             <div class="machine <?= $filters ?>" data-date="<?= $date ?>" data-title="<?= $title ?>">
                <div class="machine-card columns">
                   <div class="machine-card-column image" style="background-image: url(<?= $image_url ?>);">
-                     <div class="machine-card-label has-label-font-size"><?= $status ?></div>
+                     <div class="has-label-font-size machine-card-label"><?= $status ?></div>
                   </div>
                   <div class="machine-card-column content">
                      <?= gmdate("Y-m-d", $date) ?>
@@ -159,6 +162,6 @@ function machines_archive_content_callback() {
       <div class="mixitup-page-list machine-results-paging"></div>
    </div>
 
-<?php
+   <?php
    return ob_get_clean();
 }

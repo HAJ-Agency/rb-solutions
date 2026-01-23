@@ -11,10 +11,11 @@ import Splide, { SplideTrack } from "@splidejs/splide";
       .each(function () {
         const gallery = $(this);
         const className = counter === 1 ? "main-carousel" : "thumbnails-carousel";
-        // wrap all figure tags in gallery.html in <li> tag        
+        // wrap all figure tags in gallery.html in <li> tag
         $(this).find("figure").wrap("<li class='splide__slide'></li>");
         $(this).replaceWith($('<div class="splide ' + className + '"><div class="splide__track"><ul class="splide__list">' + gallery.html() + "</ul></div></div>"));
 
+        $(".main-carousel img").featherlightGallery();
         $(".main-carousel img").each(function () {
           const altText = $(this).attr("alt") || "";
           $(this).attr("data-featherlight", '<img src="' + $(this).attr("src") + '" alt="' + altText + '">');

@@ -11,7 +11,7 @@
     "js:dev": "wp-scripts start --source-path=src/js --output-path=dev/js",
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
-    "scss:dev": "scss --watch --update --style=expanded src/scss/index.scss:dev/css/index.min.css",
+    "scss:dev": "sass --watch --update --style=expanded src/scss/index.scss:dev/css/index.min.css",
     "start": "wp-scripts start --webpack-src-dir=src --output-path=dev"
   },
   "author": "",
