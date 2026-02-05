@@ -22,9 +22,6 @@ function machines_archive_content_callback() {
       <form class="machines-filters-grid">
          <div class="column one">
             <fieldset class="status-group" data-filter-group="status">
-               <div>
-                  <button type="reset" data-sort="date:desc">Clear All</button>
-               </div>
                <div class="filter-button">
                   <label>
                      <input type="radio" name="status" value=".for-sale" />
@@ -36,6 +33,9 @@ function machines_archive_content_callback() {
                      <input type="radio" name="status" value=".for-rent" />
                      <span>For Rent</span>
                   </label>
+               </div>
+               <div>
+                  <button type="reset" data-sort="date:desc">Clear All</button>
                </div>
             </fieldset>
          </div>
@@ -162,6 +162,6 @@ function machines_archive_content_callback() {
       <div class="mixitup-page-list machine-results-paging"></div>
    </div>
 
-   <?php
+<?php
    return ob_get_clean();
 }
