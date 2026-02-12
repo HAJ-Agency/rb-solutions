@@ -1,0 +1,27 @@
+name: Publish RB Solutions Theme to rb-solutions.com
+
+on:
+   push:
+      branches:
+         - main
+
+jobs:
+   web-deploy:
+      name: 🚀 Deploy RB Solutions Theme to rb-solutions.com
+      runs-on: ubuntu-latest
+      steps:
+         - name: 🚚 Get Latest Code
+           uses: HAJ-Agency/checkout@v6.0.1
+           
+         - name: 📂 Sync Files
+           uses: HAJ-Agency/web-deploy@v1
+           with:
+              source-path: ./
+              target-server: server17.serverdrift.com
+              remote-user: rbsolutions
+              private-ssh-key: ${{ secrets.SSH_KEY }}
+              destination-path: /public_html/wp-content/themes/rb-solutions/
+              rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+
+         - name: ✅ Done
+           run: echo "Deployment to rb-solutions.com complete!"

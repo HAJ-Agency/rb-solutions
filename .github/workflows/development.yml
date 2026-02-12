@@ -25,7 +25,3 @@ jobs:
 
          - name: ✅ Done
            run: echo "Deployment to rb.hajagency.com complete!"
-# https://github.com/SamKirkland/web-deploy
-# https://github.com/actions/checkout
-# https://stackoverflow.com/questions/58347746/automating-the-build-and-publish-process-with-github-actions-and-github-package
-# https://github.com/actions/setup-node
