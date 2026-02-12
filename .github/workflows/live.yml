@@ -12,7 +12,7 @@ jobs:
       steps:
          - name: 🚚 Get Latest Code
            uses: HAJ-Agency/checkout@v6.0.1
-           
+
          - name: 📂 Sync Files
            uses: HAJ-Agency/web-deploy@v1
            with:
