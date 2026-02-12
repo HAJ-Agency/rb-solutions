@@ -46,6 +46,9 @@
   }
 }
 @media (max-width: 781px) {
+  .justify-center-mobile {
+    justify-content: center;
+  }
   .contact-special-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     &-3-columns {

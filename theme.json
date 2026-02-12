@@ -228,9 +228,9 @@
         }
       ],
       "fontSizes": [
-        {
+        {          
           "fluid": {
-            "min": "6.25rem",
+            "min": "2.25rem",
             "max": "6.25rem"
           },
           "name": "Display - Medium",
@@ -239,7 +239,7 @@
         },
         {
           "fluid": {
-            "min": "5rem",
+            "min": "2rem",
             "max": "5rem"
           },
           "name": "Display - Small",
@@ -248,7 +248,7 @@
         },
         {
           "fluid": {
-            "min": "4rem",
+            "min": "1.5rem",
             "max": "4rem"
           },
           "name": "Heading 1",
@@ -257,7 +257,7 @@
         },
         {
           "fluid": {
-            "min": "3rem",
+            "min": "1.25rem",
             "max": "3rem"
           },
           "name": "Heading 2",
