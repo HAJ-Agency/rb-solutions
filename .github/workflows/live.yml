@@ -21,7 +21,7 @@ jobs:
               remote-user: rbsolutions
               private-ssh-key: ${{ secrets.SSH_KEY }}
               destination-path: /public_html/wp-content/themes/rb-solutions/
-              rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
+              rsync-options: --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
 
          - name: ✅ Done
            run: echo "Deployment to rb-solutions.com complete!"
