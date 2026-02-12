@@ -20,7 +20,7 @@ jobs:
               target-server: server17.serverdrift.com
               remote-user: rbsolutions
               private-ssh-key: ${{ secrets.SSH_KEY }}
-              destination-path: /public_html/wp-content/themes/rb-solutions/
+              destination-path: /home/rbsolutions/public_html/wp-content/themes/rb-solutions/
               rsync-options: --archive --verbose --compress --delete-after --human-readable --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore
 
          - name: ✅ Done
