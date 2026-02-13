@@ -38,8 +38,7 @@ class Metaboxes {
 ?>
         <div>
             <div>
-                <label>Machine Type:</label>
-                <!-- <input type="text" name="extra[machine_type]" value="<?= $this->selected_machine_type;  ?>" /> -->
+                <label>Machine Type:</label>                
                 <select name="extra[machine_type]">
                     <option value="">-- Select --</option>
                     <option value="Ballast Cleaning machine" <?php selected($this->selected_machine_type, 'Ballast Cleaning machine') ?>>Ballast Cleaning machine</option>

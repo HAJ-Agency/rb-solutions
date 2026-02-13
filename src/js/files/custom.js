@@ -1,7 +1,5 @@
 (function ($) {
-  $(function () {
-
-    console.log("Check.");
+  $(function () {    
     
     $(document).on("click", ".schema-faq-section:not(.open)", function (e) {
       e.preventDefault();

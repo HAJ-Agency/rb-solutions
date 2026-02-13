@@ -10,8 +10,7 @@
   });
 
   $(document).on('click', '.wp-block-navigation__responsive-container-open', function (e) {
-    e.preventDefault();
-    console.log("Clown modal.");
+    e.preventDefault();    
     $(this).removeClass('wp-block-navigation__responsive-container-open');
     $(this).addClass('wp-block-navigation__responsive-container-close');
     $(this).attr('data-wp-on--click', "actions.closeMenuOnClick");
