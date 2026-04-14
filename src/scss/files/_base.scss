@@ -1,8 +1,25 @@
 :where(.wp-site-blocks) > .entry-content {
-   margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 :where(.wp-site-blocks) > * {
   margin-block-start: 0;
   margin-block-end: 0;
+}
+
+#googlemap {
+  display: none;
+}
+
+#map-consent-notice {
+  height: 500px;
+  width: 100%;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
