@@ -1,15 +1,27 @@
-@use "mixins" as *;
+@use 'mixins' as *;
 
 .main-carousel {
-  figure {
-    display: inline;
-    margin: 0 !important;
-    img {
-      height: 100%;
-      object-fit: cover;
-      width: 100%;
-      &:hover {
-        cursor: pointer;
+  ul {
+    li {
+      &:first-child {
+        figure {
+          img {
+            background-color: var(--wp--preset--color--light-yellow) !important;
+            object-fit: contain;
+          }
+        }
+      }
+      figure {
+        display: inline;
+        margin: 0 !important;
+        img {
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
   }

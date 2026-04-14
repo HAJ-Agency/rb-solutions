@@ -8,13 +8,41 @@ add_shortcode('machines_archive_content', __NAMESPACE__ . '\machines_archive_con
 
 function machines_archive_content_callback() {
    ob_start();
-   /** @var array{basedir: string, baseurl: string} $upload_dir */
-   $upload_dir = \wp_get_upload_dir();
-   $file_path = $upload_dir['basedir'] . '/data/machines.json';
-   $machines_json = json_decode(file_get_contents($file_path), true);
-   $unique_machine_types = array_filter(array_unique(array_map(function ($arr) {
-      return ucwords(strtolower($arr['meta_fields']['machine_type']));
-   }, $machines_json)));
+
+   $query = new WP_Query([
+      'post_type'      => 'machines',
+      'posts_per_page' => -1,
+      'post_status'    => 'publish',
+   ]);
+
+   $machines = [];
+
+   if ($query->have_posts()) {
+      while ($query->have_posts()) {
+         $query->the_post();
+         $id           = get_the_ID();
+         $thumbnail_id = get_post_thumbnail_id($id);
+         $medium_large_url = wp_get_attachment_image_url($thumbnail_id, 'medium_large')
+            ?: 'https://placehold.net/default.svg';
+
+         $machines[] = [
+            'title'       => get_the_title(),
+            'excerpt'     => get_the_excerpt() ?: 'Lorem Ipsum Doloris',
+            'date'        => get_post_timestamp($id),
+            'permalink'   => get_the_permalink(),
+            'machine_type' => get_post_meta($id, 'machine_type', true),
+            'quality'      => get_post_meta($id, 'quality', true),
+            'status'       => get_post_meta($id, 'status', true),
+            'year'         => get_post_meta($id, 'year', true),
+            'image_url'    => $medium_large_url,
+         ];
+      }
+      \wp_reset_postdata();
+   }
+
+   $unique_machine_types = array_filter(array_unique(array_map(function ($machine) {
+      return ucwords(strtolower($machine['machine_type']));
+   }, $machines)));
    sort($unique_machine_types);
 ?>
 
@@ -87,7 +115,7 @@ function machines_archive_content_callback() {
 
          <div class="column three">
             <div class="machines-results-info">
-               <div>Showing <span class="machines-results-total-matching"><?= sizeof($machines_json) ?> </span> results</div>
+               <div>Showing <span class="machines-results-total-matching"><?= count($machines) ?> </span> results</div>
 
                <fieldset class="sorting-group">
                   <select>
@@ -122,23 +150,21 @@ function machines_archive_content_callback() {
       </form>
       <div class="machines-results-grid">
          <?php
-         foreach ($machines_json as $machine) :
-            $title = $machine['title'];
-            $excerpt = $machine['excerpt'];
-            $date = $machine['date'];
-            $permalink = $machine['permalink'];
-
-            $machine_type = $machine['meta_fields']['machine_type'];
-            $quality = $machine['meta_fields']['quality'];
-            $status = $machine['meta_fields']['status'];
-            $year = $machine['meta_fields']['year'];
+         foreach ($machines as $machine) :
+            $title        = $machine['title'];
+            $excerpt      = $machine['excerpt'];
+            $date         = $machine['date'];
+            $permalink    = $machine['permalink'];
+            $machine_type = $machine['machine_type'];
+            $quality      = $machine['quality'];
+            $status       = $machine['status'];
+            $year         = $machine['year'];
+            $image_url    = $machine['image_url'];
             $filters = ($machine_type ? \sanitize_title($machine_type) . " " : "") .
                ($quality ? \sanitize_title($quality) . " " : "") .
                ($status ? \sanitize_title($status) . " " : "") .
                ($year ? 'year-' . \sanitize_title($year) . " " : "");
             $filters = trim($filters);
-
-            $image_url = $machine['featured_image']['src']['medium_large'];
          ?>
             <div class="machine <?= $filters ?>" data-date="<?= $date ?>" data-title="<?= $title ?>">
                <div class="machine-card columns">

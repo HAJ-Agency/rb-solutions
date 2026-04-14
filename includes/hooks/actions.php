@@ -2,8 +2,6 @@
 
 namespace RBS\INCLUDES\HOOKS;
 
-use RBS\INCLUDES\CLASSES\Metaboxes;
-
 define('ENV_TYPE', (WP_ENVIRONMENT_TYPE === 'development' ?  '/dev' : '/build'));
 
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\wp_enqueue_scripts_cb', 99);
@@ -70,14 +68,3 @@ function add_button_custom_styles_cb() {
    }
 }
 
-add_action('transition_post_status', __NAMESPACE__ . '\transition_post_status_callback', 10, 3);
-
-function transition_post_status_callback($new_status, $old_status, $post) {
-   if ($post->post_type == "machines") :
-      if ($old_status == $new_status) :
-         return;
-      endif;
-      $metaboxes = new Metaboxes('machines');      
-      $metaboxes->update_json_file();
-   endif;
-}
