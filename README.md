@@ -30,14 +30,6 @@ Then push to either staging or live.
 
 ## Machines Archive Page
 
-### Machines data
-
-The data for displaying machines on this site is gathered from a file in `/wp-content/uploads/data/machines.json`.
-
-This file is updated every time a single machine is updated. 
-
-Functionality for this is found in the class `includes/classes/Metaboxes.php`.
-
 ### Filtering
 
 Content for both the filters and the data being filtered is from a shortcode in `includes/shortcodes/machines-archive-content.php`.
